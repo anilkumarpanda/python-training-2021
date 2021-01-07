@@ -76,4 +76,7 @@ config = read_config()
 
 logger.info(f"Starting code execution for project {config['project_name']}")
 print(do_something(30))
+print(do_something(46))
 logger.info("Code execution completed.")
+
+
