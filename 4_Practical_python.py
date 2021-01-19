@@ -42,3 +42,8 @@ print(do_something(46))
 logger.info("Code execution completed.")
 
 
+#### Excersise ###
+#  1.Can you create a function to read the UCI dataset using pandas.
+#  2.The path of the dataset is read from a config file.
+#  3.Count the no.of columns in the dataframe and write it to a log file.
+#######
