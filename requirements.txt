@@ -2,3 +2,4 @@ black
 loguru
 pyflakes
 matplotlib
+pandas
