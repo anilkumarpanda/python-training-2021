@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Daniel Timbrell">
+  <title>Git Training</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/ing.css" id="theme">
+  <link rel="stylesheet" href="docs/assets/theme/ing.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Git Training</h1>
+  <p class="author">Daniel Timbrell</p>
+  <p class="date">21/01/21</p>
+</section>
+
+<section id="ing-training-git" class="slide level1">
+<h1>ING Training GIT</h1>
+<p><img src="docs/ing_logo.png"
+         alt="Markdown Monster icon"
+         style="float: left; margin-right: 10px;"/></p>
+<p><img src="docs/RPAA_Logo_RGB_Line_Dark.png"
+alt="Markdown Monster icon"
+style="float: left; margin-right: 5px;"/></p>
+<!--
+Ask participants to share their team and reason for learning GIT
+-->
+</section>
+<section id="why-git" class="slide level1">
+<h1>Why GIT?</h1>
+<ul>
+<li class="fragment">Wide-spread usage. Almost all software projects are developed using GIT
+<ul>
+<li class="fragment"><a href="https://github.com/torvalds/linux">Linux</a></li>
+<li class="fragment"><a href="https://github.com/python">Python</a></li>
+<li class="fragment"><a href="https://github.com/pandas-dev/pandas">Pandas</a></li>
+</ul></li>
+<li class="fragment">Full history &amp; backup of all changes</li>
+<li class="fragment">Useful even while working alone.</li>
+</ul>
+<p>👉 Essential skill as data scientist.</p>
+</section>
+<section id="homework" class="slide level1">
+<h1>Homework</h1>
+<p><a href="https://speakerdeck.com/alicebartlett/git-for-humans">GIT for humans</a></p>
+<p>Git has a very steep learning curve.</p>
+<p>History: Created by Linus Torvalds in 2005 (<a href="https://en.wikipedia.org/wiki/Git#History">wiki</a>)</p>
+</section>
+<section id="learning-goals-today" class="slide level1">
+<h1>Learning goals today</h1>
+<ul>
+<li class="fragment">Basic git workflow</li>
+<li class="fragment">Working with multiple people via a remote (github or gitlab)</li>
+<li class="fragment">Fixing merge conflicts</li>
+<li class="fragment">Branching</li>
+<li class="fragment">Merge requests</li>
+<li class="fragment">Using github’s features</li>
+</ul>
+</section>
+<section id="windows" class="slide level1">
+<h1>Windows?</h1>
+<p><code>cmd</code> or <code>powershell</code> wont’t cut it. Either:</p>
+<ul>
+<li class="fragment">Install <a href="https://gitforwindows.org/">Git Bash for windows</a></li>
+<li class="fragment">Use <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux</a> (windows 10)</li>
+</ul>
+</section>
+<section id="show-tell-the-basics" class="slide level1">
+<h1>Show &amp; tell: The basics</h1>
+<ul>
+<li class="fragment"><code>mkdir projectname &amp;&amp; cd projectname</code></li>
+<li class="fragment"><code>git init</code> Make the current folder a git repository</li>
+<li class="fragment"><code>git status</code> See the current status of git. Use it A LOT!</li>
+<li class="fragment"><code>git add &lt;file&gt;</code> Add a file to the staging area</li>
+<li class="fragment"><code>git commit</code> Add the changes in the staging area to a commit 📸</li>
+<li class="fragment"><code>git log</code> View the list of commits</li>
+</ul>
+<p>👉 Fun commit messages? <a href="https://gitmoji.carloscuesta.me/">gitmoji</a></p>
+<!--
+**demo on a local machine**
+
+**make sure to show files actually changing**
+
+Dummy text?
+- Pandas pipeline https://calmcode.io/pandas-pipe/calm.html
+- Lorem Ipsum https://www.lipsum.com/feed/html
+- GMM https://github.com/koaning/scikit-lego/blob/master/sklego/mixture.py
+-->
+</section>
+<section id="exercise" class="slide level1">
+<h1>Exercise 🔨</h1>
+<ol type="1">
+<li class="fragment">Create a local git repo</li>
+<li class="fragment">Add a new file</li>
+<li class="fragment">Commit it to git</li>
+</ol>
+</section>
+<section id="solution-camera_flash" class="slide level1">
+<h1>Solution :camera_flash:</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">git</span> init</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">touch</span> README.md</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="fu">git</span> add README.md</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="fu">git</span> commit -m <span class="st">&quot;Add README&quot;</span></a></code></pre></div>
+</section>
+<section id="using-the-history" class="slide level1">
+<h1>Using the history</h1>
+<ul>
+<li class="fragment"><code>git diff &lt;commit&gt;</code> or <code>git diff &lt;file&gt;</code> Compare changes</li>
+<li class="fragment"><code>git checkout &lt;commit&gt;</code> Time travel to a specific commit</li>
+<li class="fragment"><code>git checkout &lt;file&gt;</code> (⚠️) Removes all edits to a file since the last commit</li>
+<li class="fragment"><code>git checkout master</code> Go back to most current version of the <code>master</code> branch</li>
+<li class="fragment"><code>git revert &lt;commit&gt;</code> Undo a commit (creates a new commit)</li>
+<li class="fragment"><code>git blame &lt;file&gt;</code> For each line who wrote it</li>
+</ul>
+</section>
+<section id="working-together" class="slide level1">
+<h1>Working together</h1>
+<p>We need to send our work to a central location, a single <em>origin</em>. This can be gitlab or github or another hosting service.</p>
+</section>
+<section id="show-and-tell-projects-on-github" class="slide level1">
+<h1>Show and tell: projects on github</h1>
+<p>On github.com:</p>
+<ul>
+<li class="fragment"><a href="https://github.com/orchardbirds/github_training_2021">Navigate to this training repo</a></li>
+<li class="fragment">Add SSH keys</li>
+</ul>
+<!-- 
+Using remotes it important, it's also backup
+
+gitlab just like github and others, adds more on top of git (like social stuff)
+-->
+</section>
+<section id="using-github" class="slide level1">
+<h1>Using github</h1>
+<ul>
+<li class="fragment"><code>git clone</code> Downloads the project.</li>
+<li class="fragment"><code>git remote -v</code> shows the URL of the <em>origin</em>.</li>
+<li class="fragment"><code>git push origin master</code> Pushes new commits to <em>origin</em> from the <em>master</em> branch</li>
+</ul>
+</section>
+<section id="exercise-1" class="slide level1">
+<h1>Exercise 🔨</h1>
+<ol type="1">
+<li class="fragment">Clone our example repo</li>
+<li class="fragment">Create a new file called <code>&lt;yourname&gt;.md</code></li>
+<li class="fragment">Push it to the origin</li>
+</ol>
+<!-- Perhaps let one participant do this live? -->
+</section>
+<section id="viewing-our-collaboration" class="slide level1">
+<h1>Viewing our collaboration</h1>
+<ul>
+<li class="fragment">Github’s visual commit history (instead of <code>git log</code>)</li>
+<li class="fragment">Github’s visual blame (instead of <code>git blame</code>)</li>
+</ul>
+</section>
+<section id="show-and-tell-merge-conflicts" class="slide level1">
+<h1>Show and tell: Merge conflicts</h1>
+<p>What if you edit the same line? Let’s try:</p>
+<ul>
+<li class="fragment">(trainer) change, add and commit a line in a file</li>
+<li class="fragment">(volunteer) change, add and commit same line</li>
+<li class="fragment">(volunteer) push code to origin</li>
+<li class="fragment">(trainer) push code to origin ❗️conflict ❗️</li>
+</ul>
+<p>To solve, edit the files manually.</p>
+</section>
+<section id="exercise-2" class="slide level1">
+<h1>Exercise 🔨</h1>
+<ol type="1">
+<li class="fragment">Make pairs</li>
+<li class="fragment">Agree on editing the same line in one of your <code>&lt;yourname&gt;.md</code> files</li>
+<li class="fragment">Let one person push first, and the second shares his/her screen</li>
+<li class="fragment">Solve the merge conflict together</li>
+</ol>
+<!-- If possible, do this in break-out rooms -->
+</section>
+<section id="branches" class="slide level1">
+<h1>Branches</h1>
+<p>What if your changes break work? Work on a copy of the code using <em>branches</em>.</p>
+<ul>
+<li class="fragment"><code>git checkout -b somethingnew</code> Create a new branch</li>
+<li class="fragment"><code>git branch</code> Overview of the branches in the repository</li>
+<li class="fragment"><code>git checkout master</code> Go to the <em>master</em> branch</li>
+<li class="fragment"><code>git checkout &lt;branch name&gt;</code> Go to the <branch name> branch</li>
+<li class="fragment"><code>git merge &lt;branch name&gt;</code> Merge commits from <branch name> into the current branch</li>
+<li class="fragment"><code>git branch -d &lt;branch name&gt;</code> Delete the branch</li>
+</ul>
+<!--
+- Explain this is useful even when working locally alone, for quick experiment
+- Show files on disk changing live when switching branches
+- Merging, show on the mental model. Explain 'from' and 'into' logic, by updating drawing on board
+-->
+</section>
+<section id="exercise-3" class="slide level1">
+<h1>Exercise 🔨</h1>
+<ol type="1">
+<li class="fragment">Make a new local branch and create a first commit</li>
+<li class="fragment">Switch to the master branch and create a second commit</li>
+<li class="fragment">Merge the two branches so everything is in the master branch</li>
+</ol>
+<!-- If possible, do this in break-out rooms -->
+</section>
+<section id="show-tell-github-ui" class="slide level1">
+<h1>Show &amp; tell: Github UI</h1>
+<ul>
+<li class="fragment">Navigation</li>
+<li class="fragment">Starring projects</li>
+<li class="fragment">Files, commits</li>
+<li class="fragment">File history</li>
+<li class="fragment">Git blame</li>
+<li class="fragment">Statistics</li>
+<li class="fragment">Github issues &amp; closing through a commit message</li>
+</ul>
+<p>🚚 Note: ING is moving to Azure DevOps and decommissioning gitlab this year</p>
+</section>
+<section id="show-tell-using-remote-branches" class="slide level1">
+<h1>Show &amp; tell: Using remote branches</h1>
+<ul>
+<li class="fragment">Create a branch using the github UI or,</li>
+<li class="fragment">Push a branch using <code>git checkout -b branchname</code> and <code>git push origin branchname</code></li>
+</ul>
+<!--
+Before showing MR show how to use branches
+-->
+</section>
+<section id="pull-requests" class="slide level1">
+<h1>💪 Pull Requests !</h1>
+<ul>
+<li class="fragment">Pull requests -&gt; New pull request
+<ul>
+<li class="fragment">With commit message, when merged, closes linked issue</li>
+</ul></li>
+<li class="fragment">Very powerful, especially when using web IDE for quick edits</li>
+</ul>
+<!-- Demo, obvsly -->
+<!-- Also show what happens if you create a MR for an issue twice -->
+</section>
+<section id="exercise-4" class="slide level1">
+<h1>Exercise 🔨</h1>
+<ol type="1">
+<li class="fragment">Create a specific issue for yourself</li>
+<li class="fragment">Create a branch</li>
+<li class="fragment">Push to this branch</li>
+<li class="fragment">Create a pull request (PR) for it</li>
+<li class="fragment">Checkout the branch for your PR locally</li>
+<li class="fragment">Update your <code>&lt;yourname&gt;.md</code> file and push</li>
+<li class="fragment">Merge your PR</li>
+</ol>
+<!--
+When everyone is done, make sure to check if we need to cleanup.
+Sometimes someone creates two merge requests for 1 issue. If not, do it yourself and show how to cleanup.
+-->
+</section>
+<section id="final-exercise" class="slide level1">
+<h1>Final exercise 🔨</h1>
+<p>In pairs of two. Instructions per person:</p>
+<ul>
+<li class="fragment">Create your own individual github issue</li>
+<li class="fragment">Create a branch</li>
+<li class="fragment">Create a github pull request (PR) for your issue</li>
+<li class="fragment">Checkout the branch for your PR locally</li>
+<li class="fragment">Edit a file and push a commit to your branch
+<ul>
+<li class="fragment">You can reference your issue in the commit message (“did a thing see #1”)</li>
+<li class="fragment">Make sure to fix any merge conflicts if they arise</li>
+</ul></li>
+<li class="fragment">Next, checkout and push a commit to your teammate’s branch</li>
+<li class="fragment">Finally, have your teammate review (leave some comments?) &amp; approve your PR</li>
+<li class="fragment">Merge your PR! :tada:</li>
+</ul>
+</section>
+<section id="finally-working-more-efficiently" class="slide level1">
+<h1>Finally: Working more efficiently</h1>
+<p>Gitlab/Github aliases:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="bu">alias</span> gst=<span class="st">&#39;git status&#39;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="bu">alias</span> gp=<span class="st">&#39;git pull&#39;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">alias</span> gc=<span class="st">&#39;git commit -m&#39;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="bu">alias</span> gaa=<span class="st">&#39;git add --all&#39;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="bu">alias</span> gl=<span class="st">&#39;git log --graph&#39;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="bu">alias</span> gpo=<span class="st">&#39;git push origin&#39;</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="bu">alias</span> gpom=<span class="st">&#39;git push origin master&#39;</span></a></code></pre></div>
+</section>
+<section id="advanced-git" class="slide level1">
+<h1>Advanced git</h1>
+<ul>
+<li class="fragment"><code>git commit --amend</code> Adding to last commit</li>
+<li class="fragment"><code>git commit -am &quot;message&quot;</code> Short for <code>git add --all</code> and <code>git commit -m</code>. Or with aliases above: <code>gaa &amp;&amp; gc &quot;message&quot;</code>.</li>
+<li class="fragment"><code>git commit -m &quot;message&quot; -m &quot;detailed message&quot;</code>. Add description.</li>
+</ul>
+<p>👉 Oh Shit! Made a mistake or got stuck? See <a href="https://ohshitgit.com/">ohshitgit.com</a></p>
+</section>
+<section id="learn-more" class="slide level1">
+<h1>Learn more</h1>
+<ul>
+<li class="fragment"><code>git &lt;command&gt; -h</code> for a quick help</li>
+<li class="fragment">See <a href="https://gitlab.com/vinktim/dotfiles">timvink/dotfiles</a> for a good terminal setup</li>
+</ul>
+</section>
+<section id="thanks" class="slide level1">
+<h1>Thanks! 👋</h1>
+<p>Let’s get in touch! Contact me at</p>
+<p>daniel.timbrell@ing.com</p>
+<p>Follow me:</p>
+<p>https://www.linkedin.com/in/dantimbrell/</p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
